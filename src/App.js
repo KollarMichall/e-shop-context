@@ -1,6 +1,6 @@
 import './App.css';
 import Homepage from './pages/homepage/Homepage';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import { BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom'
 import Shop from './pages/shop/Shop';
 import Header from './components/Header';
 import Login from './pages/login/Login';
@@ -25,7 +25,6 @@ function App() {
             }
           })
         })
-        console.log(currentUser);
       }
       setCurrentUser(userAuth)
     })
@@ -41,7 +40,9 @@ function App() {
       <Switch>
         <Route exact path='/' component={Homepage}/>
         <Route path='/shop' component={Shop}/>
-        <Route path='/signin' component={Login}/>
+        <Route path='/signin' render={() => currentUser ?
+        <Redirect to='/'/> :
+        <Login/>}/>
       </Switch>
     </Router>
   );
