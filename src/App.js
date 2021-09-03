@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Login from './pages/login/Login';
 import { useEffect, useState } from 'react';
 import { auth, createUseProfileDocument } from './firebase/firebase.utils';
+import Checkout from './pages/checkout/Checkout';
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
 
@@ -40,6 +41,7 @@ function App() {
       <Switch>
         <Route exact path='/' component={Homepage}/>
         <Route path='/shop' component={Shop}/>
+        <Route path='/checkout' component={Checkout}/>
         <Route path='/signin' render={() => currentUser ?
         <Redirect to='/'/> :
         <Login/>}/>
