@@ -2,14 +2,14 @@ const INITIAL_STATE = { sections: [ {
     id: 1,
     title: 'hats',
     imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
-    linkUrl: 'hats'
+    linkUrl: 'shop/hats'
 
 },
 {
     id: 2,
     title: 'jackets',
     imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
-    linkUrl: ''
+    linkUrl: 'shop/jackets'
 
 
 },
@@ -17,7 +17,7 @@ const INITIAL_STATE = { sections: [ {
     id: 3,
     title: 'sneakers',
     imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
-    linkUrl: ''
+    linkUrl: 'shop/sneakers'
 
 
 },
@@ -26,7 +26,7 @@ const INITIAL_STATE = { sections: [ {
     title: 'womens',
     imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
     size: 'large',
-    linkUrl: ''
+    linkUrl: 'shop/womens'
 
 
 },
@@ -35,7 +35,7 @@ const INITIAL_STATE = { sections: [ {
     title: 'mens',
     imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
     size: 'large',
-    linkUrl: ''
+    linkUrl: 'shop/mens'
 
 
 },]
