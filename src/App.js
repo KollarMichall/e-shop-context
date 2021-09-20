@@ -2,7 +2,7 @@ import './App.css';
 import Homepage from './pages/homepage/Homepage';
 import { BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom'
 import Shop from './pages/shop/Shop';
-import Header from './components/Header';
+import Header from './components/header/Header';
 import Login from './pages/login/Login';
 import { useEffect, useState } from 'react';
 import { auth, createUseProfileDocument } from './firebase/firebase.utils';

@@ -1,6 +1,6 @@
 import React from 'react'
 import Directory from '../../components/directory/Directory'
-import { HomePageContainer } from './HomePageContainer'
+import { HomePageContainer } from './HomePageStyles'
 
 const Homepage = () => {
     return (
