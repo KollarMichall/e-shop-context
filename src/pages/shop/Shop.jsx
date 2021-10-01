@@ -7,6 +7,7 @@ import CollectionPage from '../collection-page/CollectionPage'
 import {
   firestore,
   convertCollectionsSnapshotToMap,
+
 } from '../../firebase/firebase.utils.js'
 import WithSpinner from '../../components/with-spinner/WithSpinner'
 
@@ -19,18 +20,19 @@ state = {
 }
   componentDidMount() {
     const { updateCollections } = this.props;
-    const collectionRef = firestore.collection('collections');
+    const collectionRef = firestore.collection('collections')
 
     collectionRef.get().then((snapshot) => {
       const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
       updateCollections(collectionsMap);
       this.setState({ loading: false})
+      
     });
   }
 
   render() {
     const { match } = this.props;
-    const { loading } = this.props;
+    const { loading } = this.state;
     return (
       <div className='shop-page'>
         <Route exact path={`${match.path}`} render={(props) => <CollectionsOverviewWithSpinner isLoading={loading} {...props} />} />
