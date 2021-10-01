@@ -3,6 +3,7 @@ import 'firebase/auth'
 import 'firebase/firestore'
 
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyCCtPQDH-saFZ4rMJ-VJU58W96PmhvhemQ",
     authDomain: "e-shop-db-af101.firebaseapp.com",
@@ -15,6 +16,7 @@ const firebaseConfig = {
 
   firebase.initializeApp(firebaseConfig)
 
+ 
   export const createUseProfileDocument = async (userAuth, additionalData) => {
     if(!userAuth) return
 

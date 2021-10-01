@@ -5,14 +5,14 @@ import Shop from './pages/shop/Shop';
 import Header from './components/header/Header';
 import Login from './pages/login/Login';
 import { useEffect, useState } from 'react';
-import { auth, createUseProfileDocument } from './firebase/firebase.utils';
+import {  auth, createUseProfileDocument } from './firebase/firebase.utils';
 import Checkout from './pages/checkout/Checkout';
+
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
-
-
-
+  
   useEffect(() => {
+    
     auth.onAuthStateChanged(async userAuth => {
       
       if (userAuth) {
@@ -50,4 +50,5 @@ function App() {
   );
 }
 
-export default App;
+
+export default (App);
