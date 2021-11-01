@@ -20,7 +20,8 @@ state = {
 }
   componentDidMount() {
     const { updateCollections } = this.props;
-    const collectionRef = firestore.collection('collections')
+    const collectionRef = firestore.collection('collections');
+
 
     collectionRef.get().then((snapshot) => {
       const collectionsMap = convertCollectionsSnapshotToMap(snapshot);

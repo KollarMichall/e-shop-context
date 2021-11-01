@@ -36,6 +36,13 @@
       top: 255px;
       opacity: .7;
       display: none;
+
+      @media screen and (max-width: 800px) {
+        display: block;
+        opacity: .9;
+        min-width: unset;
+        padding: 0 10px;
+      }
     
      
     }
@@ -48,5 +55,18 @@
         display: flex;
       }
     }
+    @media screen and (max-width: 800px) {
+      width: 40vw;
+
+      &:hover {
+        .image {
+          opacity: unset;
+        }
+        button {
+          opacity: unset;
+          
+        }
+      }
+  }
   }
   

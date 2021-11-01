@@ -1,13 +1,17 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { toggleCartHidden } from '../../redux/cart/cart.action'
 import { selectCartItems } from '../../redux/cart/cart.selectors'
 import CartItem from '../cart-item/CartItem'
 import CustomButton from '../custom-button/CustomButton'
 import './cart-dropdown.styles.scss'
 
-const CartDropdown = ({ cartItems, history, dispatch }) => {
+const CartDropdown = () => {
+    const history = useHistory()
+    const cartItems = useSelector(selectCartItems)
+    const dispatch = useDispatch()
+
     return (
         <div className='cart-dropdown'>
             <div className="cart-items">
@@ -25,9 +29,6 @@ const CartDropdown = ({ cartItems, history, dispatch }) => {
         </div>
     )
 }
-const mapStateToProps = state => ({
-    cartItems: selectCartItems(state)
-    
-})
 
-export default withRouter(connect(mapStateToProps)(CartDropdown))
+
+export default (CartDropdown)

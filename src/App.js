@@ -1,4 +1,3 @@
-import './App.css';
 import Homepage from './pages/homepage/Homepage';
 import { BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom'
 import Shop from './pages/shop/Shop';
@@ -7,6 +6,7 @@ import Login from './pages/login/Login';
 import { useEffect, useState } from 'react';
 import {  auth, createUseProfileDocument } from './firebase/firebase.utils';
 import Checkout from './pages/checkout/Checkout';
+import { GlobalStyles } from './global.styles';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -37,6 +37,7 @@ function App() {
   }, [])
   return (
     <Router>
+      <GlobalStyles/>
       <Header currentUser={currentUser}/>
       <Switch>
         <Route exact path='/' component={Homepage}/>
