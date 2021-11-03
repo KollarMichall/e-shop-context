@@ -1,12 +1,14 @@
-import Homepage from './pages/homepage/Homepage';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom'
-import Shop from './pages/shop/Shop';
-import Header from './components/header/Header';
-import Login from './pages/login/Login';
-import { useEffect, useState } from 'react';
 import {  auth, createUseProfileDocument } from './firebase/firebase.utils';
-import Checkout from './pages/checkout/Checkout';
+import Header from './components/header/Header';
 import { GlobalStyles } from './global.styles';
+import Spinner from './components/spinner/Spinner';
+
+const Homepage = lazy(() => import('./pages/homepage/Homepage'))
+const Shop = lazy(() => import('./pages/shop/Shop'))
+const Checkout = lazy(() => import('./pages/checkout/Checkout'))
+const Login = lazy(() => import('./pages/login/Login'))
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -40,12 +42,14 @@ function App() {
       <GlobalStyles/>
       <Header currentUser={currentUser}/>
       <Switch>
-        <Route exact path='/' component={Homepage}/>
-        <Route path='/shop' component={Shop}/>
-        <Route path='/checkout' component={Checkout}/>
-        <Route path='/signin' render={() => currentUser ?
-        <Redirect to='/'/> :
-        <Login/>}/>
+        <Suspense fallback={<Spinner/>}>
+          <Route exact path='/' component={Homepage}/>
+          <Route path='/shop' component={Shop}/>
+          <Route path='/checkout' component={Checkout}/>
+          <Route path='/signin' render={() => currentUser ?
+          <Redirect to='/'/> :
+          <Login/>}/>
+        </Suspense>
       </Switch>
     </Router>
   );
